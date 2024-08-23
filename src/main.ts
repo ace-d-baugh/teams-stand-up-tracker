@@ -50,9 +50,9 @@ interface TeamMember {
                 [class.selected]="member.hasGone"
               >
                 <img
-                  src="./assets/{{
+                  src="https://github.com/ace-d-baugh/teams-stand-up-tracker/blob/master/src/assets/{{
                     member.photo
-                  }}"
+                  }}?raw=true/"
                 />
               </div>
               <div
