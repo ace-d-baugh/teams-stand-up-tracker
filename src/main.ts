@@ -50,7 +50,7 @@ interface TeamMember {
                 [class.selected]="member.hasGone"
               >
                 <img
-                  src="https://raw.githubusercontent.com/ace-d-baugh/Teams-Stand-Up-Tracker/main/src/assets/{{
+                  src="./assets/{{
                     member.photo
                   }}"
                 />
