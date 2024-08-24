@@ -14,6 +14,7 @@ interface TeamMember {
   lastName: string;
   photo: string;
   hasGone: boolean;
+  showPhoto: boolean;
 }
 
 @Component({
@@ -54,8 +55,11 @@ interface TeamMember {
 
               <!-- ******* START INITIAL VERSION ******* -->
 
-              <!--
-              <div class="card-img-top" [class.selected]="member.hasGone">
+              <div
+                *ngIf="!member.showPhoto"
+                class="card-img-top"
+                [class.selected]="member.hasGone"
+              >
                 <div class="member-initials">
                   {{ member.firstName[0] }}{{ member.lastName[0] }}
                 </div>
@@ -66,6 +70,7 @@ interface TeamMember {
               <!-- ******* START PHOTO VERSION ******* -->
 
               <div
+                *ngIf="member.showPhoto"
                 class="card-img-top member-photo"
                 [class.selected]="member.hasGone"
               >
