@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&display=swap');
+
 :root {
   --primary-color: var(--primary-light-color);
   --secondary-color: var(--secondary-light-color);
@@ -7,7 +9,7 @@
   --border-color: var(--border-light-color);
 
   --primary-light-color: #fff;
-  --secondary-light-color: #fff;
+  --secondary-light-color: #DDD;
   --text-light-color: #000;
   --background-light-color: cornflowerblue;
   --border-light-color: #999;
@@ -36,6 +38,12 @@
   --button-hover-color: var(--button-hover-dark-color);
 }
 
+body {
+  font-family: 'Alkatra', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .component-container {
   display: flex;
   min-height: 100vh;
@@ -47,7 +55,7 @@
 }
 
 h1 {
-  margin-bottom: 0px;
+  margin: 20px 0 0;
   color: var(--text-color);
 }
 
@@ -86,6 +94,7 @@ h6 {
   color: var(--text-color);
   box-sizing: border-box;
   cursor: move;
+  cursor: grab;
   text-align: center;
 }
 
@@ -103,11 +112,24 @@ h6 {
   color: var(--accent-color);
 }
 
+.member-initials {
+  font-size: 2em;
+  font-weight: 900;
+  background-color: var(--button-hover-color);
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  margin: 20px;
+}
+
 .selected {
   filter: grayscale(100%);
 }
 
 .card-img-top {
+  background-color: var(--primary-color);
   object-fit: cover;
 }
 

@@ -51,6 +51,20 @@ interface TeamMember {
                   style="font-size: 30px; font-weight: 900;"
                 ></i>
               </div>
+
+              <!-- ******* START INITIAL VERSION ******* -->
+
+              <!--
+              <div class="card-img-top" [class.selected]="member.hasGone">
+                <div class="member-initials">
+                  {{ member.firstName[0] }}{{ member.lastName[0] }}
+                </div>
+              </div>
+
+              <!-- ******* END INITIAL VERSION ******* -->
+
+              <!-- ******* START PHOTO VERSION ******* -->
+
               <div
                 class="card-img-top member-photo"
                 [class.selected]="member.hasGone"
@@ -61,6 +75,9 @@ interface TeamMember {
                   }}?raw=true/"
                 />
               </div>
+
+              <!-- ******* END PHOTO VERSION ******* -->
+
               <div
                 class="card-body member-name"
                 [class.selected]="member.hasGone"
