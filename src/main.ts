@@ -48,7 +48,7 @@ interface TeamMember {
               >
                 <i
                   class="bi bi-check"
-                  style="font-size: 30px; font-weight: 900; color: lime"
+                  style="font-size: 30px; font-weight: 900;"
                 ></i>
               </div>
               <div

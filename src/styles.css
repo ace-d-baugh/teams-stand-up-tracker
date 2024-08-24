@@ -1,36 +1,33 @@
 :root {
   --primary-color: var(--primary-light-color);
   --secondary-color: var(--secondary-light-color);
-  --accent-color: var(--accent-light-color);
+  --accent-color: #42d425;
   --text-color: var(--text-light-color);
   --background-color: var(--background-light-color);
   --border-color: var(--border-light-color);
 
   --primary-light-color: #fff;
   --secondary-light-color: #fff;
-  --accent-light-color: #6495ED; /* changed to a blue accent color */
   --text-light-color: #000;
   --background-light-color: cornflowerblue;
   --border-light-color: #999;
-  --button-color: #4682B4; /* changed to a blue button color */
+  --button-color: #4682B4;
   --button-text-color: #fff;
-  --button-hover-color: #4169E1; /* changed to a blue hover color */
+  --button-hover-color: #4169E1;
 
   --primary-dark-color: #2f2f2f;
   --secondary-dark-color: #333;
-  --accent-dark-color: #1a4dbd; /* changed to a darker blue accent color */
   --text-dark-color: #fff;
   --background-dark-color: #1a4dbd;
   --border-dark-color: #555;
-  --button-dark-color: #2F4F7F; /* changed to a darker blue button color */
+  --button-dark-color: #2F4F7F;
   --button-text-dark-color: #fff;
-  --button-hover-dark-color: #1A1D23; /* changed to a darker blue hover color */
+  --button-hover-dark-color: #1A1D23;
 }
 
 .dark-mode {
   --primary-color: var(--primary-dark-color);
   --secondary-color: var(--secondary-dark-color);
-  --accent-color: var(--accent-dark-color);
   --text-color: var(--text-dark-color);
   --background-color: var(--background-dark-color);
   --border-color: var(--border-dark-color);
@@ -99,7 +96,7 @@ h6 {
 }
 
 .check-mark i {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(43, 43, 43, 0.5);
   border-radius: 100px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
   padding: 0 5px;
