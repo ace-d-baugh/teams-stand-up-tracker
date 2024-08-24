@@ -27,6 +27,11 @@ interface TeamMember {
         Drag each member to the position you want. Click on the member to show
         they are no longer available.
       </h6>
+      <div class="dark-mode-switch">
+        <button class="button" (click)="toggleDarkMode()">
+          Toggle Dark Mode
+        </button>
+      </div>
       <div
         class="team-tracker-container"
         cdkDropList
@@ -75,6 +80,7 @@ interface TeamMember {
 })
 export class App implements OnInit {
   team: TeamMember[] = [];
+  isDarkMode = false;
 
   ngOnInit(): void {
     this.team = Team;
@@ -86,6 +92,15 @@ export class App implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.team, event.previousIndex, event.currentIndex);
+  }
+
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }
 }
 
