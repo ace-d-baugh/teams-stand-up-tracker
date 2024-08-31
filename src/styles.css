@@ -52,6 +52,11 @@ body {
   flex-direction: column;
   text-align: center;
   background-color: var(--primary-color);
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 h1 {
@@ -59,9 +64,20 @@ h1 {
   color: var(--text-color);
 }
 
-h6 {
-  margin: 0 30px 5px;
+h5 {
+  margin: 0 30px 10px;
   color: var(--text-color);
+}
+
+h6 {
+  margin: 0 30px 10px;
+  color: var(--text-color);
+}
+
+.dark-mode-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .button {
@@ -74,30 +90,51 @@ h6 {
   transition: background-color 0.3s ease-in-out;
   background-color: var(--button-color);
   color: var(--button-text-color);
-  margin-bottom: 10px;
 }
 
 .button:hover {
   background-color: var(--button-hover-color);
 }
 
-
 .team-tracker-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.team-pool-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 20px;
+  background-color: var(--secondary-color);
+}
+
+.active-team-tracker-container {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 300px;
+  min-height: 300px;
   max-width: 600px;
   background-color: var(--secondary-color);
 }
 
 .team-member {
   color: var(--text-color);
-  box-sizing: border-box;
   cursor: move;
   cursor: grab;
   text-align: center;
+  width: 125px;
 }
 
+.stand-up-container div {
+  cursor: move;
+  cursor: grab;
+}
 .check-mark {
   margin: 5px;
   z-index: 1000;
@@ -114,6 +151,10 @@ h6 {
 }
 
 .member-initials {
+  padding: 10px;
+}
+
+.initials {
   font-size: 2em;
   font-weight: 900;
   background-color: var(--button-hover-color);
@@ -121,8 +162,8 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1/1;
-  margin: 20px;
+  aspect-ratio: 1 / 1;
+  line-height: 1rem;
 }
 
 .selected {
@@ -130,6 +171,7 @@ h6 {
 }
 
 .card-img-top {
+  color: var(--text-color);
   background-color: var(--primary-color);
   object-fit: cover;
 }
@@ -143,12 +185,19 @@ h6 {
   background-color: var(--background-color);
 }
 
+.list {
+  padding: 8px 10px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
 .card-title {
   height: 100%;
-  margin-bottom: 0;
+  margin: 0;
   align-items: center;
   font-size: 0.75em;
   color: var(--text-color);
+  line-height: .5em;
 }
 
 .cdk-drag-preview {
@@ -174,6 +223,7 @@ h6 {
 
 .card {
   border-radius: 10px;
+  border: none;
   overflow: hidden;
   background-color: var(--secondary-color);
 }
