@@ -77,12 +77,10 @@
                             [class.selected]="member.hasGone"
                         >
                             <img
-                            src="{{
-                                member.photo
-                            }}" alt="{{ member.firstName }} {{ member.lastName }}"
+                            src="{{ member.firstName }}.jpg" alt="{{ member.firstName }} {{ member.lastName }}"
                             />
                         </div>
-                        <ng-template #noPhoto                        
+                        <ng-template #noPhoto
                             class="card-img-top member-initials"
                             [class.selected]="member.hasGone"
                         >

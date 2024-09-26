@@ -21,7 +21,7 @@ import { TeamMember } from '../interfaces/team-member';
 export class AppComponent implements OnInit {
 
   isValidPhoto(firstName: string): boolean {
-    return this.photoExists(`${firstName.toLowerCase()}.jpg`);
+    return this.photoExists(`${firstName}.jpg`);
   }
 
   photoExists(url: string): boolean {
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     xhr.send();
     return xhr.status !== 404;
   }
-  
+
   clearStandUp() {
     this.team.push(...this.active);
     this.active = [];
