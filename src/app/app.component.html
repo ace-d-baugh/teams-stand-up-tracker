@@ -1,0 +1,106 @@
+<div class="component-container">
+    <h1 class="text-center">Our Team: Stand-Up Tracker</h1>
+    <h6 class="text-center">
+        Drag each member to the position you want. Click on the member to show
+        they are no longer available.
+    </h6>
+    <div class="dark-mode-switch">
+        <button class="button" (click)="toggleDarkMode()">
+            Toggle Dark Mode
+        </button>
+    </div>
+    <div class="move-lists">
+        <button class="button mx-2 mb-3" (click)="clearStandUp()">
+            Clear Stand-Up
+        </button>
+    </div>
+
+    <div class="team-tracker-container">
+        <div class="team-pool-list-container"
+            cdkDropList
+            id="team-pool-list-container"
+            cdkDropListSortingDisabled
+            [cdkDropListData]="team"
+            (cdkDropListDropped)="drop($event)"
+            [cdkDropListConnectedTo]="['active-team-tracker-container']"
+        >
+            <h5>The Team</h5>
+            <button class="button mx-2 mb-3" (click)="moveToActive()">
+                Move All To Stand-Up
+            </button>
+            <div class="col g-2">
+                @for (member of team; track member) {
+                    <div class="team-member d-flex justify-content-center" cdkDrag>
+                        <div class="card w-100">
+                            <div
+                                class="card-body list w-100 d-flex align-items-center flex-column justify-content-center"
+                                >
+                                <h5 class="card-title">
+                                    {{ member.firstName }}<br>{{ member.lastName }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div
+            class="active-team-tracker-container"
+            id="active-team-tracker-container"
+            cdkDropList
+            cdkDropListOrientation="mixed"
+            [cdkDropListData]="active"
+            (cdkDropListDropped)="drop($event)"
+            [cdkDropListConnectedTo]="['team-pool-list-container']"
+        >
+            <h5>In The Stand-Up: {{ active.length }}</h5>
+            <div class="columns-slider text-center">
+                <label for="myRange" class="row justify-content-center">Columns: {{ columns }}</label>
+                <input type="range" min="2" max="5" value="{{ columns }}" class="slider" id="myRange" (input)="changeColumns()">
+            </div>
+            <div class="stand-up-container row g-2 row-cols-{{ columns }}">
+            @for (member of active; track member) {
+                <div class="col stand-up-member" (click)="select(member)" cdkDrag>
+                    <div class="card active-team-member">
+                        <div
+                            *ngIf="member.hasGone"
+                            class="check-mark position-absolute top-0 end-0"
+                        >
+                            <i
+                            class="bi bi-check"
+                            style="font-size: 30px; font-weight: 900;"
+                            ></i>
+                        </div>
+                        <div
+                            *ngIf="member.showPhoto && isValidPhoto(member.firstName); else noPhoto"
+                            class="card-img-top member-photo"
+                            [class.selected]="member.hasGone"
+                        >
+                            <img
+                            src="{{
+                                member.photo
+                            }}" alt="{{ member.firstName }} {{ member.lastName }}"
+                            />
+                        </div>
+                        <ng-template #noPhoto                        
+                            class="card-img-top member-initials"
+                            [class.selected]="member.hasGone"
+                        >
+                            <div class="initials" [class.selected]="member.hasGone">
+                                {{ member.firstName[0] }}{{ member.lastName[0] }}
+                            </div>
+                        </ng-template>
+                        <div
+                            class="card-body member-name position-absolute"
+                        >
+                            <h5 class="card-title">
+                                {{ member.firstName }}&nbsp;{{ member.lastName }}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</div>
