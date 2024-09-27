@@ -16,9 +16,14 @@ import { TeamMember } from '../interfaces/team-member';
   standalone: true,
   imports: [CdkDrag, CdkDropList, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+
+  team: TeamMember[] = [];
+  active: TeamMember[] = [];
+  isDarkMode = false;
+  columns = 3;
 
   isValidPhoto(firstName: string): boolean {
     return this.photoExists(`${firstName}.jpg`);
@@ -34,7 +39,7 @@ export class AppComponent implements OnInit {
   clearStandUp() {
     this.team.push(...this.active);
     this.active = [];
-    this.team.forEach((member) => member.hasGone = false);
+    this.team.forEach((member) => (member.hasGone = false));
     this.sortTeam();
     this.columns = 3;
   }
@@ -44,12 +49,8 @@ export class AppComponent implements OnInit {
     if (this.active.length > 12) {
       this.columns = 4;
     }
+    this.toggleSidebar();
   }
-
-  team: TeamMember[] = [];
-  active: TeamMember[] = [];
-  isDarkMode = false;
-  columns = 3;
 
   ngOnInit(): void {
     this.team = Team;
@@ -63,13 +64,17 @@ export class AppComponent implements OnInit {
 
   drop(event: CdkDragDrop<TeamMember[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
       this.sortTeam();
     }
@@ -77,7 +82,7 @@ export class AppComponent implements OnInit {
 
   sortTeam(): void {
     this.team.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
-    this.team.forEach((member) => member.hasGone = false);
+    this.team.forEach((member) => (member.hasGone = false));
   }
 
   toggleDarkMode(): void {
@@ -119,4 +124,12 @@ export class AppComponent implements OnInit {
       this.columns = 5;
     }
   }
+
+  // adds class of "pop-out" to the element with the class "team-pool-list-container" when the user clicks on it
+    toggleSidebar(): void {
+      const sidebar = document.getElementsByClassName('team-pool-list-container')[0] as HTMLElement;
+      const popIcon = document.getElementsByClassName('pop-out-icon')[0] as HTMLImageElement;
+      sidebar.classList.toggle('pop-out');
+      popIcon.classList.toggle('rotated');
+    }
 }

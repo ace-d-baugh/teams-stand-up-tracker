@@ -71,8 +71,8 @@ h6 {
   z-index: 1000;
 }
 
-.team-pool-list-container::after {
-  content: "\00bb";
+.pop-button {
+  content: "";
   position: absolute;
   top: 40px;
   right: -40px;
@@ -84,9 +84,19 @@ h6 {
   background-color: rgba(var(--button-color), 1);
 }
 
-.team-pool-list-container:hover {
+.team-pool-list-container:hover,
+.pop-out {
   top: 0;
   left: 0;
+}
+
+.pop-out-icon {
+  transition: all .5s ease-in-out;
+  display: inline-block;
+}
+
+.rotated {
+  transform: rotate(180deg);
 }
 
 .active-team-tracker-container {

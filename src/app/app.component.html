@@ -17,6 +17,7 @@
 
     <div class="team-tracker-container">
         <div class="team-pool-list-container"
+            (click)="toggleSidebar()"
             cdkDropList
             id="team-pool-list-container"
             cdkDropListSortingDisabled
@@ -43,6 +44,7 @@
                     </div>
                 }
             </div>
+            <div class="pop-button"><span class="pop-out-icon">&laquo;</span></div>
         </div>
         <div
             class="active-team-tracker-container"
