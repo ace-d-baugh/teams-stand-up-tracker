@@ -9,6 +9,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { Team } from '../../public/team';
+import { WDWTeam } from '../../public/wdw-team';
 import { TeamMember } from '../interfaces/team-member';
 
 @Component({
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
   team: TeamMember[] = [];
   active: TeamMember[] = [];
   isDarkMode = false;
+  isWDW = false;
   columns = 3;
 
   isValidPhoto(firstName: string): boolean {
@@ -92,6 +94,14 @@ export class AppComponent implements OnInit {
       document.body.classList.add('dark-mode');
     } else {
       document.body.classList.remove('dark-mode');
+    }
+  }
+
+  toggleTeams(): void {
+    if (isWDW) {
+      this.team = WDWTeam;
+    } else {
+      this.team = Team;
     }
   }
 
