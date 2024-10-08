@@ -1,4 +1,4 @@
-export const Team = [
+export const WDWTeam = [
   {
     firstName: 'Ace',
     lastName: 'Baugh',
