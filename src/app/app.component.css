@@ -30,6 +30,12 @@ h6 {
   right: 20px;
 }
 
+.wdw-team-switch {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
 .button {
   padding: 5px 10px;
   border: none;
