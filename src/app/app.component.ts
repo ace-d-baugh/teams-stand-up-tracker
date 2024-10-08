@@ -99,9 +99,13 @@ export class AppComponent implements OnInit {
 
   toggleTeams(): void {
     if (this.isWDW) {
+      this.clearStandUp();
       this.team = WDWTeam;
+      this.isWDW = false;
     } else {
+      this.clearStandUp();
       this.team = Team;
+      this.isWDW = true;
     }
   }
 
