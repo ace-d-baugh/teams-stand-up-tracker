@@ -64,7 +64,7 @@
                 <label for="myRange" class="row justify-content-center">Columns: {{ columns }}</label>
                 <input type="range" min="2" max="5" value="{{ columns }}" class="slider" id="myRange" (input)="changeColumns()">
             </div>
-            <div class="stand-up-container row g-2 row-cols-{{ columns }}">
+            <div class="stand-up-container row justify-content-center g-2 row-cols-{{ columns }}">
             @for (member of active; track member) {
                 <div class="col stand-up-member" (click)="select(member)" cdkDrag>
                     <div class="card active-team-member">
